@@ -59,3 +59,76 @@ Nginx是安装在你服务器里面，他可以占据着一个端口，比如443
 
 ###在开发过程中，即使你的小程序还没有发布，也是可以发布体验版给你的小伙伴一起围观一下的喔<br>
 
+###开始说我的这个小程序啦    
+我做的这个小程序是一个翻译助手，非常简单，微信的api我只是使用wx.request和onShareAppMessage两个重要的官方api函数，至于逻辑那些只能自己写啦<br>
+####小程序部分在这个项目的app文件夹里面，可以下载到本地，使用微信开发工具打开这个app的文件夹就可以打开我的这个小程序啦
+####server文件夹里面是我的服务器部分，部署在我的腾讯云服务器里面，在3000端口跑，用Nginx在443端口进行代理，在server文件夹内的server.js负责接收小程序发送过来的请求，并且使用translate.js里面的函数进行翻译，最后把结果反馈给小程序。
+###translate.js里面使用百度翻译的api，百度翻译的api很好用，很喜欢。 
+核心代码：<br>
+```
+module.exports = function(params, callback) { 
+  if (typeof params === 'string') { 
+    params = { 
+      query: params 
+    }; 
+  } 
+
+  params = { 
+    from: params.from || 'zh', 
+    to: params.to || 'en', 
+    query: params.query || '' 
+  }; 
+   
+  var data = querystring.stringify(params); 
+    options = { 
+      host: 'fanyi.baidu.com', 
+      port: 80, 
+      path: '/v2transapi', 
+      method: 'POST', 
+      headers: { 
+        'Content-Type':'application/x-www-form-urlencoded', 
+        'Content-Length': data.length 
+      } 
+    }; 
+  
+  var req = http.request(options, function(res) { 
+    var result = ''; 
+
+    res.setEncoding('utf8'); 
+
+    res.on('data', function(data) { 
+      result += data; 
+    }); 
+
+    res.on('end', function() { 
+    //console.log(result);
+      var obj = JSON.parse(result);
+      console.log(obj);
+      var str = obj.trans_result.data[0].dst; 
+      callback(str); 
+    }); 
+  }); 
+  
+  req.on('error', function(err) { 
+    console.log(err); 
+    setTimeout(function() { 
+      translation(query, callback); 
+    }, 3000); 
+  }); 
+  
+
+  req.write(data); 
+  req.end(); 
+
+
+}; 
+```
+
+
+###最后说一下小程序那里的语音我是怎么解决的吧<br>  
+这是百度翻译女声语音的url，喜欢的朋友可以收藏啦，以后可能用得上喔：http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=我是学生 <br> 
+注意里面有两个参数，一个是lan意思是要读出出来的是什么语言，zh是中文，en是英文，很遗憾，这个url这可以播报中文和英文的语音，其他的小语种不可以这也是我的小程序只可以有中文和英文两种语言的语音的原因，第二个参数是text就是要播报的文本是什么。
+###很遗憾我没有搞到可以发布小程序的appid，所以我做出的这个小程序只能自己平时自娱自乐一下了，但是即使发出去也没什么用，只是让我花在上面的心思更有意义而已
+![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/910618074153886974.png)
+![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/729930379004726692.png)
+![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/123.png)
