@@ -37,7 +37,8 @@ wx.request({
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/filehelper_1484751481038_72.png)   
 
 
-你需要申请证书，按照指引走就行，申请之后就会看到截图那样的证书申请好在那里了，<br>下载之后会发现有三部分：
+你需要申请证书，按照指引走就行，申请之后就会看到截图那样的证书申请好在那里了，<br>
+下载之后会发现有三部分：<br>
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/filehelper_1484751756841_98.png)<br>
 
 
