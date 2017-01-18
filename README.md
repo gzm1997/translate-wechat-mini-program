@@ -133,3 +133,7 @@ module.exports = function(params, callback) {
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/910618074153886974.png)
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/729930379004726692.png)
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/123.png)
+
+###最后说一下，要是你像我这样使用nodejs来搭建小程序后端的服务器，而且担心一旦有报错使得server.js停止运行的话，你可以使用forever喔<br>
+forever是可以让nodejs项目在后台运行的，只需要npm install forever一下就可以使用forever start server.js来运行你的expres项目啦，简单好用，<br>
+当你想停止下来debug的时候就forever stop server.js一下就行啦(注意server.js是我项目里面需要跑的脚本，需要按情况来的哇，当然，如果你学过express和nodejs的话我就没有担心这个的必要啦)
