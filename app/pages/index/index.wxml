@@ -1,0 +1,49 @@
+
+<view id="head">
+  <label class="blue">翻</label> 
+  <label class="red">译</label>
+  <label class="green">助</label>
+  <label class="purple">手</label>
+</view>
+
+<view id="hideData">
+  {{wordFrom}}
+  {{wordTo}}
+  {{wordsTotranslate}}
+</view>
+
+<picker id="from" bindchange="changefrom" value="{{indexFrom}}" range="{{arrayFrom}}">
+     {{arrayFrom[indexFrom]}}
+     <label class="arrow-down"></label>
+</picker>
+
+<view class="exchange-mask"></view>
+
+<picker id="to" bindchange="changeto" value="{{indexTo}}" range="{{arrayTo}}">
+     {{arrayTo[indexTo]}}
+     <label class="arrow-down"></label>
+</picker>
+  
+<view class="translate">
+
+  <view class="inputLine">
+
+    <textarea value="{{words}}" placeholder="输入你想翻译的文字" bindinput="showClear" auto-focus/>
+    <icon bindtap="clearWords" type="clear" size="{{size}}" />
+  </view>
+
+  <view id="show" style="display:{{DisplayResult}};">
+    <textarea id="showResult" value="{{resultRords}}" auto-focus/>
+  </view>
+  
+  <audio style="display:{{DisplayAudio}};" name="语音" author="翻译助手" src="{{src}}" controls></audio>
+
+
+  <button style="display:{{DisplayButton}};" bindtap="send" type="default" size="34" loading="{{loading}}" bindtap="send"> 翻译 </button>
+
+</view>
+
+
+
+
+

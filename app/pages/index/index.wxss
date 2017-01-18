@@ -1,0 +1,116 @@
+
+
+#head {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: black;
+}
+
+picker {
+  float: left;
+}
+
+.exchange-mask {
+  width: 21px;
+  height: 21px;
+  overflow: hidden;
+  background-image: -webkit-image-set(url(http://fanyi.baidu.com/static/translation/img/translate/translang/exchange1x_37fd099.png) 1x,url(http://fanyi.baidu.com/static/translation/img/translate/translang/exchange2x_efb0d9f.png) 2x);
+  float: left;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+.purple {
+  color: purple;
+}
+
+.green {
+  color: green;
+}
+
+#from {
+  text-align: center;
+  width: 40%;
+  background-color: #f0f0f0;
+  margin-left: 10px;
+}
+
+#to {
+  text-align: center;
+  width: 40%;
+  background-color: #f0f0f0;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border-width: 4px;
+    border-color: #777 transparent transparent;
+    border-style: solid;
+}
+
+.translate {
+  width: 95%;
+  height: 300px;
+  position: absolute;
+  left: 10px;
+  top: 80px;
+
+}
+
+.inputLine {
+  width: 100%;
+  height: 50px; 
+  border: 1px solid #eee;
+  margin-top: 10px;
+}
+
+textarea {
+  height: 100%;
+  width: 93%;
+  float: left;
+}
+
+icon {
+  float: left;
+  margin-top: 12px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+#hideData {
+  display: none;
+}
+
+#showResult {
+  height: 100%;
+  width: 100%;
+  background-color: #f0f0f0;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: darkgray;
+}
+
+#show {
+  width: 100%;
+  height: 50px; 
+  border: 1px solid #eee;
+  margin-top: 10px;
+  background-color: #f0f0f0;
+}
+
