@@ -38,11 +38,11 @@ wx.request({
 
 
 你需要申请证书，按照指引走就行，申请之后就会看到截图那样的证书申请好在那里了，<br>
-下载之后会发现有三部分：<br>
+下载之后会发现主要有三部分：Apache, Nginx, IIS<br>
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/filehelper_1484751756841_98.png)<br>
 
 
-注意：证书的安装腾讯云的文档不是说的太明白，我当时就是搞得一脸懵逼。<br>   因为我的的服务端是用nodejs写的，所以需要安装Nginx服务器，Nginx的安装教程如下：http://www.cnblogs.com/chuncn/archive/2011/10/14/2212291.html <br>
+注意：证书的安装腾讯云的文档不是说的太明白，我当时就是搞得一脸懵逼。<br>   因为我的的服务端是用nodejs写的，所以需要安装Nginx服务器(涉及Nginx反向代理nodejs项目)，Nginx的安装教程如下：http://www.cnblogs.com/chuncn/archive/2011/10/14/2212291.html <br>
 
 
 安装之后你就可以使用http://yourDomainName yourDomainName是你的域名（没有域名的话需要自己申请一个，在腾讯云上有得买，加上优惠券还是挺便宜的，但是之后几年的价格怎样不知道，想要免费的域名也可以，可以自行谷歌百度搜素一下就行） 来访问你的服务器的了（默认是80端口），然后安装Nginx证书，教程如下： http://jingyan.baidu.com/article/63f2362836d90c0208ab3dd9.html <br>  
@@ -60,9 +60,9 @@ Nginx是安装在你服务器里面，他可以占据着一个端口，比如443
 
 ###在开发过程中，即使你的小程序还没有发布，也是可以发布体验版给你的小伙伴一起围观一下的喔<br>
 
-###开始说我的这个小程序啦    
+###开始说我的这个小程序    
 我做的这个小程序是一个翻译助手，非常简单，微信的api我只是使用wx.request和onShareAppMessage两个重要的官方api函数，至于逻辑那些只能自己写啦<br>
-####小程序部分在这个项目的app文件夹里面，可以下载到本地，使用微信开发工具打开这个app的文件夹就可以打开我的这个小程序啦
+####小程序部分在这个项目的app文件夹里面，可以下载到本地，使用微信开发工具打开这个app的文件夹就可以打开我的这个小程序啦<br>
 ####server文件夹里面是我的服务器部分，里面还没有安装依赖，需要自己安装啦，部署在我的腾讯云服务器里面，在3000端口跑，用Nginx在443端口进行代理，在server文件夹内的server.js负责接收小程序发送过来的请求，并且使用translate.js里面的函数进行翻译，最后把结果反馈给小程序。
 ###translate.js里面使用百度翻译的api，主要使用http.request()函数，百度翻译的api很好用，很喜欢。 
 核心代码：<br>
@@ -135,6 +135,6 @@ module.exports = function(params, callback) {
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/729930379004726692.png)
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/123.png)
 
-###最后说一下，要是你像我这样使用nodejs来搭建小程序后端的服务器，而且担心一旦有报错使得server.js停止运行的话，你可以使用forever喔<br>
-forever是可以让nodejs项目在后台运行的，只需要npm install forever一下就可以使用forever start server.js来运行你的expres项目啦，简单好用，<br>
+###最后说一下，要是你像我这样使用nodejs来搭建小程序后端的服务器，而且担心一旦有报错使得server.js停止运行的话，你可以使用forever<br>
+forever是可以让nodejs项目在后台运行的，只需要npm install forever一下就可以使用forever start server.js来运行你的expres项目，简单好用，<br>
 当你想停止下来debug的时候就forever stop server.js一下就行啦(注意server.js是我项目里面需要跑的脚本，需要按情况来的哇，当然，如果你学过express和nodejs的话我就没有担心这个的必要啦)
