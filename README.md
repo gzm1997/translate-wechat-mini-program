@@ -144,7 +144,7 @@ params = {
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/910618074153886974.png)
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/869412204321258718.png)
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/729930379004726692.png)
-![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/123.png)
+![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/208763810200817083.png)
 
 ###最后说一下，要是你像我这样使用nodejs来搭建小程序后端的服务器，而且担心一旦有报错使得server.js停止运行的话，你可以使用forever<br>
 forever是可以让nodejs项目在后台运行的，只需要npm install forever一下就可以使用forever start server.js来运行你的expres项目，简单好用，<br>
