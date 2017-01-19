@@ -38,7 +38,7 @@ wx.request({
 
 
 你需要申请证书，按照指引走就行，申请之后就会看到截图那样的证书申请好在那里了，<br>
-下载之后会发现主要有三部分：Apache, Nginx, IIS<br>
+下载之后会发现主要有三部分：`Apache`, `Nginx`, `IIS`<br>
 ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/filehelper_1484751756841_98.png)<br>
 
 
@@ -46,25 +46,25 @@ wx.request({
 
 
 安装之后你就可以使用http://yourDomainName yourDomainName是你的域名（没有域名的话需要自己申请一个，在腾讯云上有得买，加上优惠券还是挺便宜的，但是之后几年的价格怎样不知道，想要免费的域名也可以，可以自行谷歌百度搜素一下就行） 来访问你的服务器的了（默认是80端口），然后安装Nginx证书，教程如下： http://jingyan.baidu.com/article/63f2362836d90c0208ab3dd9.html <br>  
-安装好ssl证书之后，你就可以适应https://youDomainName 来访问你的服务器啦
+安装好`ssl证书`之后，你就可以适应https://youDomainName 来访问你的服务器啦
 
 
 接着就是使用你的Nginx服务器来代理你作为微信小程序后端的nodejs项目了， 
 
-####先说说使用Nginx反向代理nodejs项目是什么意思    
+####先说说使用`Nginx反向代理nodejs项目`是什么意思    
 
 Nginx是安装在你服务器里面，他可以占据着一个端口，比如443，然后你运行你的nodejs项目，让它在3000端口跑，这时候你让Nginx代理，让别人访问你服务器443端口的时候，转而自动访问你nodejs所在3000端口，这就是使用Nginx反向代理nodejs项目
 教程如下： http://www.imooc.com/article/1911 
-核心部分如下： ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/filehelper_1484752408584_87.png)<br>
+核心部分如下（下图源自Nginx的nginx.conf配置文件）： ![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/filehelper_1484752408584_87.png)<br>
 
 
-###在开发过程中，即使你的小程序还没有发布，也是可以发布体验版给你的小伙伴一起围观一下的喔<br>
+###在开发过程中，即使你的小程序还没有发布，也是可以发布`体验版`给你的小伙伴一起围观一下的<br>
 
 ###开始说我的这个小程序    
-我做的这个小程序是一个翻译助手，非常简单，微信的api我只是使用wx.request和onShareAppMessage两个重要的官方api函数，至于逻辑那些只能自己写啦<br>
-####小程序部分在这个项目的app文件夹里面，可以下载到本地，使用微信开发工具打开这个app的文件夹就可以打开我的这个小程序啦<br>
+我做的这个小程序是一个`翻译助手`，非常简单，微信的api我只是使用`wx.request`和`onShareAppMessage`两个重要的官方api函数，至于逻辑那些只能自己写啦<br>
+####小程序部分在这个项目的app文件夹里面，可以下载到本地，使用`微信开发工具`打开这个`名为app的文件夹`就可以打开我的这个小程序啦<br>
 ####server文件夹里面是我的服务器部分，里面还没有安装依赖，需要自己安装啦，部署在我的腾讯云服务器里面，在3000端口跑，用Nginx在443端口进行代理，在server文件夹内的server.js负责接收小程序发送过来的请求，并且使用translate.js里面的函数进行翻译，最后把结果反馈给小程序。
-###translate.js里面使用百度翻译的api，主要使用http.request()函数，百度翻译的api很好用，很喜欢。 
+###translate.js里面使用`百度翻译的api`，主要使用`http.request()`函数，百度翻译的api很好用，很喜欢。 
 核心代码：<br>
 ```
 module.exports = function(params, callback) { 
@@ -124,9 +124,20 @@ module.exports = function(params, callback) {
 
 }; 
 ```
+```
+params = { 
+   from: params.from || 'zh', //原来是什么语言                
+   to: params.to || 'en', //要翻译为什么语言         
+   query: params.query || ''  //要翻译的语句
+ }; 
+```
+ 
+ 
+使用百度翻译的api,必须知道每种语言，百度翻译使用什么单词表示的：<br>
+![](https://github.com/15331094/WeChat-small-program/blob/master/screenshot/filehelper_1484783947017_44.png)
 
 
-###最后说一下小程序那里的语音我是怎么解决的吧<br>  
+###最后说一下小程序那里的`语音`我是怎么解决的吧<br>  
 这是百度翻译女声语音的url，喜欢的朋友可以收藏啦，以后可能用得上喔：http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=我是学生 <br> 
 注意里面有两个参数，一个是lan意思是要读出出来的是什么语言，zh是中文，en是英文，很遗憾，这个url这可以播报中文和英文的语音，其他的小语种不可以这也是我的小程序只可以有中文和英文两种语言的语音的原因，第二个参数是text就是要播报的文本是什么。
 ###很遗憾我没有搞到可以发布小程序的appid，所以我做出的这个小程序只能自己平时自娱自乐一下了，但是即使发出去也没什么用，只是让我花在上面的心思更有意义而已，效果图如下：<br>
