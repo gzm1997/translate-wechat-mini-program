@@ -37,6 +37,7 @@ wx.request({
 注意这个函数的url必须是https,这是除了看文档之外我花费时间最多的地方
 
 ------
+
 ##接上面讲https
 这个真的浪费我很多时间，我的后端是在我的腾讯云服务器使用**nodejs**语言搭建的server，因为小程序必须的request的url必须是https这就需要你的服务器具有**ssl证书**。如果你使用的腾讯云服务器的话，登录你的腾讯云服务器云主机，在上面的**ssl证书管理**那里你会看到这个：
 ![ssl证书][4]
@@ -50,11 +51,15 @@ wx.request({
 安装好ssl证书之后，你就可以适应https://yourDomainName 来访问你的服务器
 
 接着就是使用你的Nginx服务器来代理你作为微信小程序后端的nodejs项目了
+
 ------
+
 ##先说说使用Nginx反向代理nodejs项目是什么意思  
 Nginx是安装在你服务器里面，他可以占据着一个端口，比如443，然后你运行你的nodejs项目，让它在3000端口跑，这时候你让Nginx代理，让别人访问你服务器443端口的时候，转而自动访问你nodejs所在3000端口，这就是使用Nginx反向代理nodejs项目 [教程][8] 核心部分如下（下图源自Nginx的nginx.conf配置文件）： 
 ![nginx.conf配置文件][9]
+
 ------
+
 ##我的小程序
 我做的这个小程序是一个翻译助手，非常简单，微信的api我只是使用wx.request和onShareAppMessage两个重要的官方api函数，至于逻辑那些只能自己写
 
@@ -132,20 +137,28 @@ params = {
 ```
 使用百度翻译的api,必须知道每种语言，百度翻译使用什么单词表示的：
 ![百度翻译语言表示][10]
+
 ------
+
 ##解决语音问题：
 这是百度翻译女声语音的[url][11]，喜欢的朋友可以收藏，以后可能用得上
 注意里面有两个参数，一个是**lan**意思是要读出出来的是什么语言，zh是中文，en是英文，很遗憾，这个url这可以播报中文和英文的语音，其他的小语种不可以这也是我的小程序只可以有中文和英文两种语言的语音的原因，第二个参数是**text**就是要播报的文本是什么
+
 ------
+
 ##效果图如下：
 ![效果图1][12]
 ![效果图2][13]
 ![效果图3][14]
 ![效果图4][15]
+
 ------
+
 ##forever
 forever是可以让nodejs项目在后台运行的，只需要npm install forever一下就可以使用forever start server.js来运行你的expres项目，简单好用，当你想停止下来debug的时候就forever stop server.js一下就行
+
 ------
+
 
   [1]: https://mp.weixin.qq.com/debug/wxadoc/dev/
   [2]: http://www.wxapp-union.com/forum.php?mod=viewthread&tid=495
