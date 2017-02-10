@@ -63,7 +63,7 @@ Nginx是安装在你服务器里面，他可以占据着一个端口，比如443
 ##我的小程序
 
 使用：
-下载本项目到本地或者你的服务器，进入server文件夹，输入npm install安装依赖，等待安装完成输入npm start启动后端脚本，app文件夹使用微信开发工具打开，把pages文件夹内ndex.js中的wx.request中的url改为你的服务器域名或者ip地址（真机测试必须是https访问，这就是上面我煞费口舌说https的原因），也可以本地调试的话应该可以改为：localhost:端口
+下载本项目到本地或者你的服务器，进入server文件夹，输入npm install安装依赖，等待安装完成输入npm start启动后端脚本，app文件夹使用微信开发工具打开，把pages文件夹内index.js中的wx.request中的url改为你的服务器域名或者ip地址（真机测试必须是https访问，这就是上面我煞费口舌说https的原因），也可以本地调试的话应该可以改为：localhost:端口
 
 我做的这个小程序是一个翻译助手，非常简单，微信的api我只是使用wx.request和onShareAppMessage两个重要的官方api函数，至于逻辑那些只能自己写
 
