@@ -167,7 +167,7 @@ forever是可以让nodejs项目在后台运行的，只需要npm install forever
   [1]: https://mp.weixin.qq.com/debug/wxadoc/dev/
   [2]: http://www.wxapp-union.com/forum.php?mod=viewthread&tid=495
   [3]: https://github.com/15331094/translate-wechat-mini-program/blob/master/screenshot/filehelper_1484750785063_22.png?raw=true
-  [4]: https://github.com/15331094/translate-wechat-mini-program/blob/master/screenshot/filehelper_1484751756841_98.png?raw=true
+  [4]: https://github.com/15331094/translate-wechat-mini-program/blob/master/screenshot/filehelper_1484751481038_72.png?raw=true
   [5]: https://github.com/15331094/translate-wechat-mini-program/blob/master/screenshot/filehelper_1484751756841_98.png?raw=true
   [6]: http://www.cnblogs.com/chuncn/archive/2011/10/14/2212291.html
   [7]: http://jingyan.baidu.com/article/63f2362836d90c0208ab3dd9.html
